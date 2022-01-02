@@ -1,5 +1,5 @@
 FROM --platform=${TARGETPLATFORM:-linux/amd64} ghcr.io/openfaas/classic-watchdog:0.2.0 as watchdog
-FROM --platform=${TARGETPLATFORM:-linux/amd64} python:3.7
+FROM python:3.7
 
 FROM ubuntu:20.04
 

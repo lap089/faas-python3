@@ -18,7 +18,7 @@ RUN python3.7 -m pip install --upgrade pip
 RUN wget -O h5py-3.1.0-cp37-cp37m-linux_aarch64.whl "https://www.googleapis.com/drive/v3/files/1YVnEbNAOc85IVpirgEG7fGyU13b9hn8n?alt=media&key=AIzaSyA799IZVeyHS9OlAZFY4ktIKUA-bcWZNlo"
 RUN python3.7 -m pip install h5py-3.1.0-cp37-cp37m-linux_aarch64.whl
 RUN rm -rf h5py-3.1.0-cp37-cp37m-linux_aarch64.whl
-RUN rm -rf h5py-3.1.0-cp37-cp37m-linux_aarch64.whl
+RUN python3.7 -m pip install h5py-3.1.0-cp37-cp37m-linux_aarch64.whl
 
 RUN wget -O grpcio-1.34.1-cp37-cp37m-linux_aarch64.whl "https://www.googleapis.com/drive/v3/files/13oHrrLqvOmsRQPJSuaFtFQ2xsPqFTKVl?alt=media&key=AIzaSyA799IZVeyHS9OlAZFY4ktIKUA-bcWZNlo"
 RUN python3.7 -m pip install grpcio-1.34.1-cp37-cp37m-linux_aarch64.whl

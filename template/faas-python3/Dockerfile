@@ -55,7 +55,7 @@ RUN chown -R app /home/app && \
 ENV PATH=$PATH:/home/app/.local/bin:/home/app/python/bin/
 ENV PYTHONPATH=$PYTHONPATH:/home/app/python
 
-RUN pip install -r requirements.txt --target=/home/app/python
+RUN python3.7 -m pip install -r requirements.txt --target=/home/app/python
 
 RUN mkdir -p function
 RUN touch ./function/__init__.py
@@ -63,7 +63,7 @@ RUN touch ./function/__init__.py
 WORKDIR /home/app/function/
 COPY function/requirements.txt	.
 
-RUN pip install -r requirements.txt --target=/home/app/python
+RUN python3.7 -m pip install -r requirements.txt --target=/home/app/python
 
 WORKDIR /home/app/
 
@@ -79,7 +79,7 @@ RUN chown -R app:app ./ && \
 #USER app
 #USER 1000
 
-ENV fprocess="python3 index.py"
+ENV fprocess="python3.7 index.py"
 EXPOSE 8080
 
 HEALTHCHECK --interval=3s CMD [ -e /tmp/.lock ] || exit 1

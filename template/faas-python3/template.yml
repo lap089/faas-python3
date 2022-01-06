@@ -1,2 +1,2 @@
 language: faas-python3
-fprocess: python3 index.py
+fprocess: python3.7 index.py

@@ -51,7 +51,7 @@ COPY requirements.txt   .
 RUN chown -R app /home/app && \
     mkdir -p /home/app/python && chown -R app /home/app
 #USER app
-USER 1000
+#USER 1000
 ENV PATH=$PATH:/home/app/.local/bin:/home/app/python/bin/
 ENV PYTHONPATH=$PYTHONPATH:/home/app/python
 
@@ -68,7 +68,7 @@ RUN pip install -r requirements.txt --target=/home/app/python
 WORKDIR /home/app/
 
 #USER root
-USER 1000
+#USER 1000
 
 COPY function           function
 

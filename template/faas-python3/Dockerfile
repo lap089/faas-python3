@@ -1,4 +1,4 @@
-FROM --platform=${TARGETPLATFORM:-linux/amd64} ghcr.io/openfaas/classic-watchdog:0.2.0 as watchdog
+#FROM --platform=${TARGETPLATFORM:-linux/amd64} ghcr.io/openfaas/classic-watchdog:0.2.0 as watchdog
 FROM python:3.7
 
 FROM ubuntu:20.04
@@ -34,8 +34,8 @@ ARG BUILDPLATFORM
 # Allows you to add additional packages via build-arg
 ARG ADDITIONAL_PACKAGE
 
-COPY --from=watchdog /fwatchdog /usr/bin/fwatchdog
-RUN chmod +x /usr/bin/fwatchdog
+#COPY --from=watchdog /fwatchdog /usr/bin/fwatchdog
+#RUN chmod +x /usr/bin/fwatchdog
 RUN apt-get update \
     && apt-get install -y ca-certificates ${ADDITIONAL_PACKAGE} \
     && rm -rf /var/lib/apt/lists/
@@ -77,11 +77,11 @@ RUN chown -R app:app ./ && \
     chmod -R 777 /home/app/python
 
 #USER app
-USER 1000
+#USER 1000
 
 ENV fprocess="python3 index.py"
-EXPOSE 8080
+#EXPOSE 8080
 
-HEALTHCHECK --interval=3s CMD [ -e /tmp/.lock ] || exit 1
+#HEALTHCHECK --interval=3s CMD [ -e /tmp/.lock ] || exit 1
 
-CMD ["fwatchdog"]
+#CMD ["fwatchdog"]

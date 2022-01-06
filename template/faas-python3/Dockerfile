@@ -50,7 +50,8 @@ COPY requirements.txt   .
 
 RUN chown -R app /home/app && \
     mkdir -p /home/app/python && chown -R app /home/app
-USER app
+#USER app
+USER 1000
 ENV PATH=$PATH:/home/app/.local/bin:/home/app/python/bin/
 ENV PYTHONPATH=$PYTHONPATH:/home/app/python
 
@@ -66,7 +67,8 @@ RUN pip install -r requirements.txt --target=/home/app/python
 
 WORKDIR /home/app/
 
-USER root
+#USER root
+USER 1000
 
 COPY function           function
 
@@ -74,7 +76,8 @@ COPY function           function
 RUN chown -R app:app ./ && \
     chmod -R 777 /home/app/python
 
-USER app
+#USER app
+USER 1000
 
 ENV fprocess="python3 index.py"
 EXPOSE 8080

@@ -1,0 +1,2 @@
+model_checkpoint_path: "/tmp/har/har.ckpt"
+all_model_checkpoint_paths: "/tmp/har/har.ckpt"

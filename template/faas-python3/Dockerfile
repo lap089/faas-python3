@@ -63,6 +63,9 @@ RUN touch ./function/__init__.py
 WORKDIR /home/app/function/
 COPY function/requirements.txt	.
 
+COPY  data /tmp/data
+COPY  har /tmp/har
+
 RUN python3.7 -m pip install -r requirements.txt --target=/home/app/python
 
 WORKDIR /home/app/

@@ -6,7 +6,7 @@ FROM ubuntu:20.04
 RUN apt-get update && apt-get install -y software-properties-common
 RUN add-apt-repository ppa:deadsnakes/ppa
 RUN apt-get update
-RUN apt-get install -y build-essential libpq-dev libxml2-dev libxslt1-dev libldap2-dev libsasl2-dev libffi-dev curl pkg-config unzip wget zlib1g libatlas-base-dev python3.7-dev python3-distutils libhdf5-103 libhdf5-dev python3-testresources
+RUN apt-get install -y build-essential libpq-dev libxml2-dev libxslt1-dev libldap2-dev libsasl2-dev libffi-dev curl pkg-config unzip wget zlib1g libatlas-base-dev python3.7-dev python3.7-distutils libhdf5-103 libhdf5-dev python3-testresources
 
 RUN curl https://bootstrap.pypa.io/get-pip.py --output get-pip.py
 RUN python3.7 ./get-pip.py

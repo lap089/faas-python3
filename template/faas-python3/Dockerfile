@@ -7,6 +7,8 @@ RUN apt-get update && apt-get install -y software-properties-common
 RUN add-apt-repository ppa:deadsnakes/ppa
 RUN apt-get update
 RUN apt-get install -y build-essential libpq-dev libxml2-dev libxslt1-dev libldap2-dev libsasl2-dev libffi-dev curl pkg-config unzip wget zlib1g libatlas-base-dev python3.7-dev python3.7-distutils libhdf5-103 libhdf5-dev python3-testresources
+RUN apt-get update
+RUN apt-get install -y python3-numpy libblas-dev liblapack-dev gfortran python3-setuptools python3-scipy 
 
 RUN curl https://bootstrap.pypa.io/get-pip.py --output get-pip.py
 RUN python3.7 ./get-pip.py
@@ -27,6 +29,7 @@ RUN wget -O tensorflow-2.5.0-cp37-cp37m-linux_aarch64.whl "https://www.googleapi
 RUN python3.7 -m pip install tensorflow-*.whl
 RUN rm -rf tensorflow-*.whl
 
+RUN python3.7 -m pip install keras
 
 ARG TARGETPLATFORM
 ARG BUILDPLATFORM
